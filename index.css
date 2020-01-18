@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+}
+
+
+.addBookmark {
+    float: left;
+    padding: 10px;
+    width: 200px;
+    margin-left:100px
+}
+.filter-section #dropdown {
+    /* background: gray;
+    color: white; */
+    /* border: none; */
+    float: right;
+    padding: 10px;
+    width: 200px;
+    margin-right:100px;
+}
+
