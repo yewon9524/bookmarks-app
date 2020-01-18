@@ -1,11 +1,19 @@
 * {
     box-sizing: border-box;
 }
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
 
 header {
     text-align: center;
 }
 
+
+.addBookmark-form-section {
+    display: none;
+}
 
 .addBookmark {
     float: left;
@@ -13,6 +21,12 @@ header {
     width: 200px;
     margin-left:100px
 }
+
+.addBookmarkForm {
+    width: 300px;
+}
+
+
 .filter-section #dropdown {
     /* background: gray;
     color: white; */
@@ -23,3 +37,12 @@ header {
     margin-right:100px;
 }
 
+.bookmarkList-section {
+    border: solid 2px black;
+    display: block;
+    color: grey;
+    font-style: italic;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
