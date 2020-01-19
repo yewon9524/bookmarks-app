@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 .container {
-    max-width: 600px;
+    /* max-width: 800px; */
     margin: 0 auto;
   }
 
@@ -11,38 +11,44 @@ header {
 }
 
 
-.addBookmark-form-section {
-    display: none;
+#filterByRating {
+    /* background: gray;
+    color: white; */
+    /* border: none; */
+    padding: 10px;
+    width: 200px;
+    margin-right:100px;
 }
-
-.addBookmark {
-    float: left;
+#addBookmark {
+    /* float: left; */
     padding: 10px;
     width: 200px;
     margin-left:100px
 }
 
-.addBookmarkForm {
-    width: 300px;
+.addBookmark-form-section {
+    display: none;
+    width: 50%;
+    border: 2px solid lavender;
+    margin-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-
-.filter-section #dropdown {
-    /* background: gray;
-    color: white; */
-    /* border: none; */
-    float: right;
-    padding: 10px;
-    width: 200px;
-    margin-right:100px;
-}
+fieldset{
+    border:none;
+    box-shadow: none;
+  }
 
 .bookmarkList-section {
-    border: solid 2px black;
-    display: block;
+    border: solid 2px lightcoral;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
     color: grey;
-    font-style: italic;
+    display: block;
     font-size: 20px;
+    margin-top: 15px;
     margin-bottom: 15px;
   }
   
