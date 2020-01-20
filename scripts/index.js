@@ -4,16 +4,23 @@
 
 
 // const main = function() {
-  
+//   api.getBookmarks()
+//     .then((bookmark) => {
+//       bookmark.forEach((bookmark) => store.addBookmark(bookmark));
+//       bookmarksList.render();
+//     });
+//   bookmarksList.bindEventListeners();
+//   bookmarksList.render();
 // };
-
 
 // $(main);
 
 
-//handle new-bookmark button 
-$('#new-bookmark').click(function() {
-  $('.addBookmark-form-section').css('display', 'block');
-});
-  
-//
+
+
+
+
+
+
+
+

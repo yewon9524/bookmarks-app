@@ -11,30 +11,29 @@
 
 <body> 
     <header role='banner'>
-        <h1>Bookmarks</h1>
-    </header>
-    
-    <main role='main'>
+        <div class='title'>
+            <h1>My Bookmarks</h1>
+        </div>  
 
         <section class='main-controls'>
             <div class='add-and-filter'>
                 <!-- add bookmark button -->
                 <button type="submit" id='new-bookmark'>New Bookmark</button>
                 <!-- filter by rating -->
-                
                 <select id="filter-by-rating" name='filter-by-rating' >
-                    <label for='filter-rating'>Filter</label>
                     <option value=''>- - filter - -</option>
-                    <option value='1'>1 star</option>
-                    <option value='2'>2 star</option>
-                    <option value='3'>3 star</option>
-                    <option value='4'>4 star</option>
-                    <option value='5'>5 star</option>
+                    <option value='5'>★★★★★ 5</option>
+                    <option value='4'>★★★★☆ 4+</option>
+                    <option value='3'>★★★☆☆ 3+</option>
+                    <option value='2'>★★☆☆☆ 2+</option>
+                    <option value='1'>★☆☆☆☆ 1+</option>
                 </select>
             </div>
         </section>
+    </header>
+    
 
-
+    <main role='main'>
         <section class='addBookmark-form-section'>
             <form class='addBookmark-form'>
                 <fieldset class='bookmarkInfo'>
@@ -47,7 +46,7 @@
                     <label for="description">Description: </label>
                     <input type='text' name='description'><br>
 
-                    <div class='rating'>
+                    <div class='rating'> 
                         <label for='rating'>Rating 
                             <input type='radio' name='star' id='star1'><label for="star1"></label>
                             <input type='radio' name='star' id='star2'><label for="star2"></label>
@@ -83,7 +82,9 @@
 
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="module" src="scripts/index.js"></script>
+    <!-- <script type="module" src="scripts/index.js"></script> -->
+    <script type="module" src="scripts/bookmarks-list.js"></script>
+
 
 </body>
 </html>
