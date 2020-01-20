@@ -1,22 +1,21 @@
-
-const bookmarks = [];
+const bookmarksList = [];
 let addNewBookmark = false;
 let ratingFilter = 0;
 let error = null;
 
 
 const findBookmarkById = function(id) {
-  return this.bookmarks.find(currentItem => currentItem.id === id);
+  return this.bookmarksList.find(currentItem => currentItem.id === id);
 };
 
 
 const findAndDelete = function(id) {
-  this.bookmarks = this.bookmarks.filter(currentItem => currentItem.id !== id);
+  this.bookmarksList = this.bookmarksList.filter(currentItem => currentItem.id !== id);
 };
 
 
 const addBookmark = function(bookmark) {
-  this.bookmark.push(bookmark);
+  this.bookmarksList.push(bookmark);
 };
 
 
@@ -40,7 +39,7 @@ const handleError = function(error) {
 };
 
 export default {
-  bookmarks,
+  bookmarksList,
   addNewBookmark,
   ratingFilter,
   error,
