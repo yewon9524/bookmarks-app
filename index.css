@@ -4,7 +4,6 @@
     
 }
 
-
 header {
     text-align: center;
     text-transform: uppercase;
@@ -35,6 +34,7 @@ div .add-and-filter  {
     margin-right:300px;
     
 }
+
 #filter-by-rating {
     background-color: white;
     border: 3px solid lavender;
@@ -53,11 +53,56 @@ div .add-and-filter  {
 
 .addBookmark-form-section {
     display: none;
-    width: 50%;
+    width: 30%;
     border: 2px solid midnightblue;
-    margin-top: 15px;
+    margin-top: 30px;
     margin-right: auto;
     margin-left: auto;
+}
+.rating {
+    transform: translate(-60%, 0) rotateY(180deg);
+    display: flex;
+    position: relative;
+    top:50%;
+    left: 50%;
+}
+.rating input {
+    display: none;
+}
+.rating label {
+    display: block;
+    cursor: pointer;
+    width: 30px;
+    background: #ccc;
+} 
+
+.rating label:before {
+    background-color: white;
+    content: '\f005';
+    font-family: fontAwesome;
+    position: relative;
+    display: block;
+    font-size: 30px;
+    color: lavender;
+}
+
+.rating label:after {
+    content: '\f005';
+    font-family: fontAwesome;
+    display: block;
+    font-size: 30px;
+    color: darkorange;
+    opacity: 0;
+    transition: .5s;
+    text-shadow: 0 2px 5px rgba(0,0,0,.5);
+    position: fixed;
+    top: 0;
+}
+
+.rating label:hover:after,
+.rating label:hover ~ label:after,
+.rating input:checked ~ label:after {
+    opacity: 1;
 }
 
 fieldset{
@@ -65,15 +110,45 @@ fieldset{
     box-shadow: none;
   }
 
-.bookmarkList-section {
-    border: solid 2px lightcoral;
+
+ul {
+    margin-top: 50px;
+    list-style: none;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-    color: grey;
-    display: block;
-    font-size: 20px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
-  
+}
+.condense {
+background-color: #777;
+color: white;
+cursor: pointer;
+padding: 18px;
+width: 100%;
+border: none;
+text-align: left;
+outline: none;
+font-size: 15px;
+}
+
+.condense:hover {
+background-color: #555;
+}
+
+.expand {
+padding: 0 18px;
+display: none;
+overflow: hidden;
+background-color: #f1f1f1;
+}
+
+
+
+.bookmark-item {
+    list-style-type: none;
+    background: lightcoral;
+}
+
+.expand {
+    display:none;
+}
+
