@@ -6,79 +6,82 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bookmarks App</title>
     <link rel='stylesheet' href='index.css'>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body> 
-    <div class='container'>
-        <header role='banner'>
-            <h1>Bookmarks</h1>
-        </header>
-        
-        <main role='main'>
+    <header role='banner'>
+        <h1>Bookmarks</h1>
+    </header>
+    
+    <main role='main'>
 
-            <section class='filterByRating-section'>
-                <select id="filterByRating" class='nav' name='rating' >
+        <section class='main-controls'>
+            <div class='add-and-filter'>
+                <!-- add bookmark button -->
+                <button type="submit" id='new-bookmark'>New Bookmark</button>
+                <!-- filter by rating -->
+                
+                <select id="filter-by-rating" name='filter-by-rating' >
+                    <label for='filter-rating'>Filter</label>
+                    <option value=''>- - filter - -</option>
                     <option value='1'>1 star</option>
                     <option value='2'>2 star</option>
                     <option value='3'>3 star</option>
                     <option value='4'>4 star</option>
                     <option value='5'>5 star</option>
                 </select>
-            </section>
+            </div>
+        </section>
 
 
-            <section class='addBookmark-section'>
-                <button type="submit" id='addBookmark' class='nav'>Add Bookmark</button>
-            </section> 
+        <section class='addBookmark-form-section'>
+            <form class='addBookmark-form'>
+                <fieldset class='bookmarkInfo'>
+                    <label for="title">Title: </label>
+                    <input type='text' name='title' required><br>
 
+                    <label for="url">URL: </label>
+                    <input type='url' name='url' value="https://" required><br>
 
-            <section class='addBookmark-form-section'>
-                <form class='addBookmarkForm'>
-                    <fieldset class='bookmarkInfo'>
-                        <label for="title">Title: </label>
-                        <input type='text' name='title' required><br>
+                    <label for="description">Description: </label>
+                    <input type='text' name='description'><br>
 
-                        <label for="url">URL: </label>
-                        <input type='url' name='url' value="https://" required><br>
+                    <div class='rating'>
+                        <label for='rating'>Rating 
+                            <input type='radio' name='star' id='star1'><label for="star1"></label>
+                            <input type='radio' name='star' id='star2'><label for="star2"></label>
+                            <input type='radio' name='star' id='star3'><label for="star3"></label>
+                            <input type='radio' name='star' id='star4'><label for="star4"></label>
+                            <input type='radio' name='star' id='star5'><label for="star5"></label>
+                        </label> 
+                    </div>
+                    <button type='submit' class='add'>Add</button>
+                </fieldset>
+            </form>
+        </section>
 
-                        <label for="description">Description: </label>
-                        <input type='text' name='description'><br>
-
-                        <div class='rating'>
-                            <label for='rating'>Rating 
-                                <input type='radio' name='star' id='star1'><label for="star1"></label>
-                                <input type='radio' name='star' id='star2'><label for="star2"></label>
-                                <input type='radio' name='star' id='star3'><label for="star3"></label>
-                                <input type='radio' name='star' id='star4'><label for="star4"></label>
-                                <input type='radio' name='star' id='star5'><label for="star5"></label>
-                            </label> 
+        
+        <section class='bookmarkList-section'>
+            <ul class="bookmarkList-js">
+                <li class="bookmark-item">
+                    <span class='title'>Title</span>
+                    <span class='Rating'>Rating</span>
+                        <button class="item-delete">
+                        <span class="item-delete-button">Delete</span>
+                        </button>
+                    
+                        <div class='expand'>
+                            <span class='expand-description'>Description</span></br>
+                            <span class='expand-url'>URL</span>
                         </div>
-                        <button type='submit' class='add'>Add</button>
-                    </fieldset>
-                </form>
-            </section>
+                </li>
+            </ul>
+        </section>
+        
+    </main>
 
-            
-            <section class='bookmarkList-section'>
-                <ul class="bookmarkList-js">
-                    <li class="bookmark-item">
-                        <span class='title'>Title</span>
-                        <span class='Rating'>Rating</span>
-                          <button class="item-delete">
-                            <span class="item-delete-button">Delete</span>
-                          </button>
-                        
-                          <div class='expand'>
-                              <span class='expand-description'>Description</span></br>
-                              <span class='expand-url'>URL</span>
-                          </div>
-                    </li>
-                </ul>
-            </section>
-            
-        </main>
-    </div>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="module" src="scripts/index.js"></script>

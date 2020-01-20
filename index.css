@@ -1,35 +1,60 @@
 * {
     box-sizing: border-box;
+    background-color: transparent;
+    
 }
-.container {
-    /* max-width: 800px; */
-    margin: 0 auto;
-  }
+
 
 header {
     text-align: center;
+    text-transform: uppercase;
+    color: steelblue;
 }
 
+.main-controls {
+    text-align: center;
+}
 
-#filterByRating {
-    /* background: gray;
-    color: white; */
-    /* border: none; */
-    padding: 10px;
-    width: 200px;
-    margin-right:100px;
+div .add-and-filter  {
+    display: inline-block;    
 }
-#addBookmark {
-    /* float: left; */
-    padding: 10px;
-    width: 200px;
-    margin-left:100px
+
+#new-bookmark {
+    background-color: white;
+    border: 3px solid lavender;
+    color: grey;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: lighter;
+    height: 40px;
+    letter-spacing: 1pxs;
+    padding: 0 25px;
+    text-align: center;
+    width: 180px;
+    text-transform: uppercase;
+    margin-right:300px;
+    
 }
+#filter-by-rating {
+    background-color: white;
+    border: 3px solid lavender;
+    color: grey;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: lighter;
+    height: 40px;
+    letter-spacing: 1px;
+    padding: 0 25px;
+    text-align: center;
+    width:180px;
+    text-transform: uppercase;
+}
+
 
 .addBookmark-form-section {
     display: none;
     width: 50%;
-    border: 2px solid lavender;
+    border: 2px solid midnightblue;
     margin-top: 15px;
     margin-right: auto;
     margin-left: auto;
