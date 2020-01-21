@@ -54,9 +54,8 @@ div .add-and-filter  {
     letter-spacing: 2px;
     text-align: center;
     width: 130px;
-    padding: 10px 2px;
+    padding: 1px 5px;
     text-transform: uppercase;
-    margin-left: 20px;
     margin-top: 0px;
 }
 
@@ -168,7 +167,7 @@ fieldset{
     width: 70%;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 50%;
+    padding-bottom: 100%;
 }
 .condense {
     margin-top: 10px;
