@@ -1,8 +1,8 @@
-#Bookmakrs App Project - Raina
+# Bookmakrs App Project - Raina
 
-###Access live GH pages:
+### Access live GH pages:
 
-###User Stories
+### User Stories
 As a User:
 
 - I can add bookmarks to my bookmark list. Bookmarks contain:
