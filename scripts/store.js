@@ -2,6 +2,7 @@ const bookmarks = [];
 let addNewBookmark = false;
 let ratingFilter = 0;
 let error = null;
+let filter = 0;
 
 
 const findBookmarkById = function(id) {
@@ -42,6 +43,7 @@ export default {
   bookmarks,
   addNewBookmark,
   ratingFilter,
+  filter,
   error,
   findBookmarkById,
   addBookmark,

@@ -1,7 +1,6 @@
 const BASE_URL = 'https://thinkful-list-api.herokuapp.com/raina/bookmarks';
 
-
-const listApiFetch = function (...args) {
+const listApiFetch = function(...args) {
   let error;
   return fetch(...args)
     .then(res => {
@@ -24,9 +23,15 @@ const listApiFetch = function (...args) {
     });
 };
   
+const createBoomark = function(title, description, url, rating) {
+  let newBookmark = JSON.stringify({
+    title,
+    description,
+    url,
+    rating
+  });
+  console.log(newBookmark);
 
-const createBoomark = function (name) {
-  const newBookmark = JSON.stringify({name});
   return listApiFetch(`${BASE_URL}`, {
     method: 'POST',
     headers: {
@@ -36,12 +41,11 @@ const createBoomark = function (name) {
   });
 };
 
-
-const getBookmarks = function () {
+const getBookmark = function() {
   return listApiFetch(`${BASE_URL}`);
 };
   
-const deleteBookmark = function (id) {
+const deleteBookmark = function(id) {
   return listApiFetch(`${BASE_URL}/${id}`, {
     method: 'DELETE'
   });
@@ -49,6 +53,6 @@ const deleteBookmark = function (id) {
   
 export default {
   createBoomark,  
-  getBookmarks,
+  getBookmark,
   deleteBookmark
 };
