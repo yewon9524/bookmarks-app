@@ -40,6 +40,7 @@ export default {
   error,
   findBookmarkById,
   addBookmark,
+  toggleAddBookmarkForm,
   findAndDelete,
   toggleExpandBookmark,
   handleError

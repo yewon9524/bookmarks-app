@@ -31,7 +31,6 @@ const createBoomark = function(id, title, desc, url, rating) {
     url,
     rating
   });
-  console.log(newBookmark);
 
   return listApiFetch(`${BASE_URL}`, {
     method: 'POST',
