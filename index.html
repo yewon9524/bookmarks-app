@@ -67,13 +67,15 @@
     <main role='main'>     
         <section class='bookmarkList-section'>
             <ul class='bookmark-list'>
-                <!-- <li class='bookmaark-list-element'>
-                    <button type="button" class="condense">${bookmarkTitle} ${bookmarkRating}</button>
-                    <div class="expand">
-                        <p>${bookmarkDescription}</p>
-                        <p>URL</p>
-                        <button type='button' value='delete'>Delete</button>
+                <!-- <li class='bookmark-list-element' data-item-id="${bookmark.id}" >
+                    <div class = 'js-bookmark'>
+                    <button type="button" class="condense">${bookmark.title} | ${bookmark.rating}</button>
                     </div>
+                    <div class="expand" id="${bookmark.id}">
+                        <p>${bookmark.description}</p>
+                        <a href="${bookmark.url}" class="visit-site">Visit Site</a>
+                        <button class='delete' type='button' value='delete'>Delete</button>
+                     </div>
                 </li> -->
             </ul>
         </section>

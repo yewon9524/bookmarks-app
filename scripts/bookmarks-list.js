@@ -2,50 +2,53 @@ import api from './api.js';
 import store from './store.js';
 
 
-// const generateBookmarkElement = function(bookmark) {
-    
-//   return `
-//     <li class='bookmark-list-element'>
-//         <div class = 'js-bookmark' data-bookmark-id = ${bookmark.id}>
-//         <button type="button" class="condense">${bookmark.title} | ${bookmark.rating}</button>
-//         <div class="expand" id="${bookmark.id}>
-//             <p>${bookmark.description}</p>
-//             <a href="${bookmark.url}" target="_blank" class="visit-site">Visit Site</a>
-//             <button type='button' value='delete'>Delete</button>
-//          </div>
-//     </li>
-//     `;
-// }; 
+/* generarting html elements */
+const generateBookmarkElement = function(bookmark) {
+  let starRating = showStarRating(bookmark.rating);
+  return `
+    <li class='bookmark-list-element' data-item-id="${bookmark.id}">
+        <div class = 'js-bookmark'>
+            <button type="button" class="condense">${bookmark.title} <span class='ratingStar'>${starRating}</span></button>
+        </div>
+        <div class="expand">
+            <p class='description'>${bookmark.description}</p>
+            <a href="${bookmark.url}" class="visit-site">Visit Site</a>
+            <button class='delete' type='button' value='delete'>X</button>
+        </div>
+    </li>
+    `;
+}; 
 
-// const generateBookmarksListString = function (bookmkarList) {
-//   const bookmarks = bookmkarList.map((bookmark) => generateBookmarkElement(bookmark));
-//   return bookmarks.join('');
-// };
+const generateBookmarksListString = function (bookmarksList) {
+  const bookmarks = bookmarksList.map((bookmark) => generateBookmarkElement(bookmark));
+  return bookmarks.join('');
+};
 
-// const generateError = function (message) {
-//   return `
-//         <section class="error-content">
-//           <button id="cancel-error">X</button>
-//           <p>${message}</p>
-//         </section>
-//       `;
-// };
+/* handling errors */
+const generateError = function (message) {
+  return `
+        <section class="error-content">
+          <button id="cancel-error">X</button>
+          <p>${message}</p>
+        </section>
+      `;
+};
 
-// const renderError = function () {
-//   if (store.error) {
-//     const el = generateError(store.error);
-//     $('.error-container').html(el);
-//   } else {
-//     $('.error-container').empty();
-//   }
-// };
+const renderError = function () {
+  if (store.error) {
+    const el = generateError(store.error);
+    $('.error-container').html(el);
+  } else {
+    $('.error-container').empty();
+  }
+};
 
-// const handleCloseError = function () {
-//   $('.error-container').on('click', '#cancel-error', () => {
-//     store.handleError(null);
-//     renderError();
-//   });
-// };
+const handleCloseError = function () {
+  $('.error-container').on('click', '#cancel-error', () => {
+    store.handleError(null);
+    renderError();
+  });
+};
   
 
 // const render = function() {
@@ -57,93 +60,117 @@ import store from './store.js';
 //   $('.bookmark-list').html(bookmarksListString);
 // };
 
+
+
+
+/* handling submit/delete/add buttons */
 const handleNewBookmarkButton = function() {
   $('#new-bookmark').click(function() {
     $('.addBookmark-form-section').slideToggle('slow');
   });
 };
 
+const handleExpandButton = function() {
+  $('.condense').click(function() {
+    $('.expand').slideToggle('slow');
+  });
+};
 
-// const handleAddBookmarkSubmit = function() {
-//   $('.addBookmark-form').submit(function (event) {
-//     event.preventDefault();
+const showStarRating = function(rating) {
+  if (rating === 5) {
+    return '★ ★ ★ ★ ★';
+  } 
+  else if (rating === 4) {
+    return '★ ★ ★ ★';
+  }
+  else if (rating === 3) {
+    return '★ ★ ★';
+  } else if (rating === 2) {
+    return '★ ★';
+  } else if (rating === 1) {
+    return '★';
+  } else {
+    return '';
+  }
+};
+
+const handleAddBookmarkSubmit = function() {
+  $('.addBookmark-form').submit(function (event) {
+    event.preventDefault();
     
-//     const title = $('#title-input').val();
-//     $('#title-input').val('');
+    const title = $('#title-input').val();
+    const url = $('#url-input').val();
+    const description = $('#description-input').val();
+    const rating = $('input[type=radio][name=star]:checked').val();
 
-//     const url = $('#url-input').val();
-//     $('#url-input').val('http://');
+    console.log(rating);
 
-//     const description = $('#description-input').val();
-//     $('#description-input').val('');
+    api.createBoomark(title, description, url, rating)
+      .then((newBookmark) => {
+        store.addBookmark(newBookmark);
+        $('.addBookmark-form').addClass('hidden');
 
-//     const rating = $('#rating-input').val();
-//     $('#rating-input').val('');
+        render();
+      })
+      .catch(err => {
+        store.handleError(err.message);
+        renderError();
+      });
 
-//     const bookmark = {
-//       title,
-//       description,
-//       url,
-//       rating
-//     };
-
-//     $('.bookmark-list').html(generateBookmarksListString(bookmark));
-
-    // let error = '';
-    // api.createBoomark(bookmark)
-    //   .then(res => {
-    //     if(!res.ok) {
-    //       error = {code: res.status};
-    //     }
-    //     return res.json();
-    //   })
-    //   .then(res => {
-    //     if(error) {
-    //       error.message = res.message;
-    //       return Promise.reject(error);
-    //     }
-
-    // $(newBookmarkTitle());
-    // $(newBookmarkURL());
-    // $(newBookmarkDescription());
-//   });
-// };
+    $('.addBookmark-form')[0].reset();
+  });
+};
 
 
-
-// const getItemIdFromElement = function (item) {
-//   return $(item)
-//     .closest('.bookmark-list-element');
-// };
-
-
+const getItemIdFromBookmark = function(bookmark) {
+  return $(bookmark)
+    .closest('.bookmark-list-element')
+    .data('item-id');
+};
 
 
-// for (let i = 0; i < $('.condense').length; i++) {
-//   $('.condense')[i].addEventListener('click', function() {
-//     this.classList.toggle('active');
-//     var expand = this.nextElementSibling;
-//     if (expand.style.display === 'block') {
-//       expand.style.display = 'none';
-//     } else {
-//       expand.style.display = 'block';
-//     }
-//   });
-// }
+const handleBookmarkDeleteButton = function() {
+  $('.bookmark-list').on('click', '.delete', event => {
+    const id = getItemIdFromBookmark(event.currentTarget);
+    console.log('working');
 
+    api.deleteBookmark(id)
+      .then (() => {
+        store.findAndDelete(id);
+        render();
+      })
+      .catch(error => {
+        console.log(error);
+        store.handleError(error.message);
+        renderError();
+      });
+  });
+};
+
+const render = function () {
+  renderError();
+  let bookmarksListString = '';
+  
+  bookmarksListString = generateBookmarksListString(store.bookmarks);
+
+  $('.bookmark-list').html(bookmarksListString);
+};
 
 
 
 const bindEventListeners = function() {
   handleNewBookmarkButton();
-//   handleAddBookmarkSubmit();
+  handleExpandButton();
+  handleAddBookmarkSubmit();
+  handleBookmarkDeleteButton();
+  handleCloseError();
 };
 
 // $(bindEventListeners);
 
 
 export default {
-//   render,
+  render,
   bindEventListeners
 };
 
