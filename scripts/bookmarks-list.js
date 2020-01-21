@@ -126,12 +126,6 @@ const getItemIdFromBookmark = function(bookmark) {
     .data('item-id');
 };
 
-const handleNewBookmarkButton = function() {
-    $('#new-bookmark').click(function() {
-      $('.addBookmark-form-section').slideToggle('slow');
-    });
-  };
-
 const handleExpandButton = function() {
   $('.bookmark-list').on('click', '.condense', (event) => {
     const id = getItemIdFromBookmark(event.currentTarget);

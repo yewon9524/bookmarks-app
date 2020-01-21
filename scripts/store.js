@@ -37,6 +37,7 @@ export default {
   bookmarks,
   addNewBookmark,
   minRating,
+  toggleAddBookmarkForm,
   error,
   findBookmarkById,
   addBookmark,
