@@ -23,10 +23,11 @@ const listApiFetch = function(...args) {
     });
 };
   
-const createBoomark = function(title, description, url, rating) {
+const createBoomark = function(id, title, desc, url, rating) {
   let newBookmark = JSON.stringify({
+    id, 
     title,
-    description,
+    desc,
     url,
     rating
   });

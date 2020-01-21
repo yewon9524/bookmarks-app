@@ -1,8 +1,7 @@
 const bookmarks = [];
 let addNewBookmark = false;
-let ratingFilter = 0;
 let error = null;
-let filter = 0;
+let minRating = 0;
 
 
 const findBookmarkById = function(id) {
@@ -19,22 +18,17 @@ const addBookmark = function(bookmark) {
   this.bookmarks.push(bookmark);
 };
 
-
-const toggleAddNewBookmark = function() {
-  this.addNewBookmark = !this.addNewBookmark;
+const toggleAddBookmarkForm = function(id) {
+  let currentBookmark = findBookmarkById(id);
+  currentBookmark.expand = !currentBookmark.expand; 
 };
 
-
 const toggleExpandBookmark = function(id) {
-  let currentBookmark = findBookmarkById(id);
+  let currentBookmark = this.findBookmarkById(id);
   currentBookmark.expand = !currentBookmark.expand;
 };
 
-const toggleRatingFilter = function(rating) {
-  this.ratingFilter = rating;
-};
-
-
+  
 const handleError = function(error) {
   this.error = error;
 };
@@ -42,14 +36,11 @@ const handleError = function(error) {
 export default {
   bookmarks,
   addNewBookmark,
-  ratingFilter,
-  filter,
+  minRating,
   error,
   findBookmarkById,
   addBookmark,
   findAndDelete,
-  toggleAddNewBookmark,
   toggleExpandBookmark,
-  toggleRatingFilter,
   handleError
 };

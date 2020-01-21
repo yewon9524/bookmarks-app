@@ -1,7 +1,6 @@
 import api from './api.js';
 import store from './store.js';
 
-
 /* generarting html elements */
 const generateBookmarkElement = function(bookmark) {
   let starRating = showStarRating(bookmark.rating);
@@ -10,11 +9,11 @@ const generateBookmarkElement = function(bookmark) {
         <div class = 'js-bookmark'>
             <button type="button" class="condense">${bookmark.title} <span class='ratingStar'>${starRating}</span></button>
         </div>
-        <div class="expand">
-            <p class='description'>${bookmark.description}</p>
+        ${bookmark.expand ? `<div class="expand">
+            <p class='description'>${bookmark.desc}</p>
             <a href="${bookmark.url}" class="visit-site">Visit Site</a>
             <button class='delete' type='button' value='delete'>X</button>
-        </div>
+        </div>` : ''}
     </li>
     `;
 }; 
@@ -23,6 +22,7 @@ const generateBookmarksListString = function (bookmarksList) {
   const bookmarks = bookmarksList.map((bookmark) => generateBookmarkElement(bookmark));
   return bookmarks.join('');
 };
+
 
 /* handling errors */
 const generateError = function (message) {
@@ -49,18 +49,17 @@ const handleCloseError = function () {
     renderError();
   });
 };
-  
 
-// const render = function() {
-//   renderError();
-//   let bookmarks = [...store.bookmarks];
+const render = function () {  
+  renderError();
 
-//   const bookmarksListString = generateBookmarksListString(bookmarks);
+  let bookmarks = store.bookmarks.filter(bookmark => {
+    return bookmark.rating >= store.minRating;
+  });
 
-//   $('.bookmark-list').html(bookmarksListString);
-// };
-
-
+  let bookmarksListString = generateBookmarksListString(bookmarks);
+  $('.bookmark-list').html(bookmarksListString);
+};
 
 
 /* handling submit/delete/add buttons */
@@ -70,20 +69,12 @@ const handleNewBookmarkButton = function() {
   });
 };
 
-const handleExpandButton = function() {
-  $('.condense').click(function() {
-    $('.expand').slideToggle('slow');
-  });
-};
-
 const showStarRating = function(rating) {
   if (rating === 5) {
     return '★ ★ ★ ★ ★';
-  } 
-  else if (rating === 4) {
+  } else if (rating === 4) {
     return '★ ★ ★ ★';
-  }
-  else if (rating === 3) {
+  } else if (rating === 3) {
     return '★ ★ ★';
   } else if (rating === 2) {
     return '★ ★';
@@ -97,15 +88,15 @@ const showStarRating = function(rating) {
 const handleAddBookmarkSubmit = function() {
   $('.addBookmark-form').submit(function (event) {
     event.preventDefault();
-    
+    const id = store.findBookmarkById();
     const title = $('#title-input').val();
     const url = $('#url-input').val();
-    const description = $('#description-input').val();
+    const desc = $('#description-input').val();
     const rating = $('input[type=radio][name=star]:checked').val();
 
     console.log(rating);
 
-    api.createBoomark(title, description, url, rating)
+    api.createBoomark(id, title, desc, url, rating)
       .then((newBookmark) => {
         store.addBookmark(newBookmark);
         $('.addBookmark-form').addClass('hidden');
@@ -121,18 +112,38 @@ const handleAddBookmarkSubmit = function() {
   });
 };
 
-
+function handleFilterRating(){
+  $('#filter-by-rating').on('change', event => {
+    let rating = $(event.target).val();
+    store.minRating = rating;
+    render();
+  });
+}
+  
 const getItemIdFromBookmark = function(bookmark) {
   return $(bookmark)
     .closest('.bookmark-list-element')
     .data('item-id');
 };
 
+const handleNewBookmarkButton = function() {
+    $('#new-bookmark').click(function() {
+      $('.addBookmark-form-section').slideToggle('slow');
+    });
+  };
+
+const handleExpandButton = function() {
+  $('.bookmark-list').on('click', '.condense', (event) => {
+    const id = getItemIdFromBookmark(event.currentTarget);
+    store.toggleExpandBookmark(id);
+    render();
+  });
+};
+
 
 const handleBookmarkDeleteButton = function() {
   $('.bookmark-list').on('click', '.delete', event => {
     const id = getItemIdFromBookmark(event.currentTarget);
-    console.log('working');
 
     api.deleteBookmark(id)
       .then (() => {
@@ -147,26 +158,15 @@ const handleBookmarkDeleteButton = function() {
   });
 };
 
-const render = function () {
-  renderError();
-  let bookmarksListString = '';
-  
-  bookmarksListString = generateBookmarksListString(store.bookmarks);
-
-  $('.bookmark-list').html(bookmarksListString);
-};
-
-
 
 const bindEventListeners = function() {
   handleNewBookmarkButton();
   handleExpandButton();
   handleAddBookmarkSubmit();
+  handleFilterRating();
   handleBookmarkDeleteButton();
   handleCloseError();
 };
-
-// $(bindEventListeners);
 
 
 export default {

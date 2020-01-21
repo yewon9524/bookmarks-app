@@ -11,24 +11,24 @@
 </head>
 
 <body> 
-
     <header role='banner'>
-
+        
         <div class='title'>
             <h1>My Bookmarks</h1>
         </div>  
+
         <section class='main-controls'>
             <div class='add-and-filter'>
                 <!-- add bookmark button -->
                 <button type="submit" id='new-bookmark'>New Bookmark</button>
                 <!-- filter by rating -->
                 <select id="filter-by-rating" name='filter-by-rating' >
-                    <option value='' >- - filter - -</option>
-                    <option value='5'>★★★★★ 5</option>
-                    <option value='4'>★★★★☆ 4+</option>
-                    <option value='3'>★★★☆☆ 3+</option>
-                    <option value='2'>★★☆☆☆ 2+</option>
-                    <option value='1'>★☆☆☆☆ 1+</option>
+                    <option value='' >- - filter - - </option>
+                    <option value='5' id='stars5'>★★★★★ 5</option>
+                    <option value='4' id='stars4'>★★★★☆ 4+</option>
+                    <option value='3' id='stars3'>★★★☆☆ 3+</option>
+                    <option value='2' id='stars2'>★★☆☆☆ 2+</option>
+                    <option value='1' id='stars1'>★☆☆☆☆ 1+</option>
                 </select>
             </div>
         </section>
@@ -62,21 +62,9 @@
 
     </header>
 
-
-    
     <main role='main'>     
         <section class='bookmarkList-section'>
             <ul class='bookmark-list'>
-                <!-- <li class='bookmark-list-element' data-item-id="${bookmark.id}" >
-                    <div class = 'js-bookmark'>
-                    <button type="button" class="condense">${bookmark.title} | ${bookmark.rating}</button>
-                    </div>
-                    <div class="expand" id="${bookmark.id}">
-                        <p>${bookmark.description}</p>
-                        <a href="${bookmark.url}" class="visit-site">Visit Site</a>
-                        <button class='delete' type='button' value='delete'>Delete</button>
-                     </div>
-                </li> -->
             </ul>
         </section>
     </main>
@@ -85,7 +73,6 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="module" src="scripts/index.js"></script>
     <!-- <script type="module" src="scripts/bookmarks-list.js"></script> -->
-
 </body>
 </html>
 
