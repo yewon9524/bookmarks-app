@@ -63,6 +63,7 @@ const render = function () {
 /* handling submit/delete/add buttons */
 const handleNewBookmarkButton = function() {
   $('#new-bookmark').click(function() {
+      store.toggleAddBookmarkForm();
     $('.addBookmark-form-section').slideToggle('slow');
   });
 };
@@ -95,7 +96,7 @@ const handleAddBookmarkSubmit = function() {
     api.createBoomark(id, title, desc, url, rating)
       .then((newBookmark) => {
         store.addBookmark(newBookmark);
-        $('.addBookmark-form').addClass('hidden');
+        $('.addBookmark-form-section').css('display', 'none');
         render();
       })
       .catch(err => {
@@ -103,6 +104,7 @@ const handleAddBookmarkSubmit = function() {
         renderError();
       });
     $('.addBookmark-form')[0].reset();
+
   });
 };
 

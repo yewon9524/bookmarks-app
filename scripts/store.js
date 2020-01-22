@@ -2,6 +2,7 @@ const bookmarks = [];
 let addNewBookmark = false;
 let error = null;
 let minRating = 0;
+let formOpen = false;
 
 
 const findBookmarkById = function(id) {
@@ -18,9 +19,8 @@ const addBookmark = function(bookmark) {
   this.bookmarks.push(bookmark);
 };
 
-const toggleAddBookmarkForm = function(id) {
-  let currentBookmark = findBookmarkById(id);
-  currentBookmark.expand = !currentBookmark.expand; 
+const toggleAddBookmarkForm = function() {
+  this.addNewBookmark = !this.addBookmark; 
 };
 
 const toggleExpandBookmark = function(id) {
@@ -38,6 +38,7 @@ export default {
   addNewBookmark,
   minRating,
   error,
+  formOpen,
   findBookmarkById,
   addBookmark,
   toggleAddBookmarkForm,

@@ -222,6 +222,10 @@ fieldset{
       color: #ec66c4;
 }
 
+.hidden {
+    display: none;
+}
+
 
 @media (min-width: 768px) {
 
