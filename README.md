@@ -1,4 +1,4 @@
-# Bookmakrs App Project - Raina 
+# Bookmarks App Project - Raina 
 
 ### Access live GH pages:  
 
