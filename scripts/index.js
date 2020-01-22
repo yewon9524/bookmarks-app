@@ -14,13 +14,3 @@ const main = function() {
 };
 
 $(main);
-
-
-
-
-
-
-
-
-
-

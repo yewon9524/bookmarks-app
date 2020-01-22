@@ -23,7 +23,6 @@ const generateBookmarksListString = function (bookmarksList) {
   return bookmarks.join('');
 };
 
-
 /* handling errors */
 const generateError = function (message) {
   return `
@@ -61,10 +60,10 @@ const render = function () {
   $('.bookmark-list').html(bookmarksListString);
 };
 
-
 /* handling submit/delete/add buttons */
 const handleNewBookmarkButton = function() {
   $('#new-bookmark').click(function() {
+    store.toggleAddBookmarkForm();
     $('.addBookmark-form-section').slideToggle('slow');
   });
 };
@@ -94,21 +93,18 @@ const handleAddBookmarkSubmit = function() {
     const desc = $('#description-input').val();
     const rating = $('input[type=radio][name=star]:checked').val();
 
-    console.log(rating);
-
     api.createBoomark(id, title, desc, url, rating)
       .then((newBookmark) => {
         store.addBookmark(newBookmark);
-        $('.addBookmark-form').addClass('hidden');
-
+        $('.addBookmark-form-section').css('display', 'none');
         render();
       })
       .catch(err => {
         store.handleError(err.message);
         renderError();
       });
-
     $('.addBookmark-form')[0].reset();
+
   });
 };
 
@@ -134,7 +130,6 @@ const handleExpandButton = function() {
   });
 };
 
-
 const handleBookmarkDeleteButton = function() {
   $('.bookmark-list').on('click', '.delete', event => {
     const id = getItemIdFromBookmark(event.currentTarget);
@@ -152,7 +147,6 @@ const handleBookmarkDeleteButton = function() {
   });
 };
 
-
 const bindEventListeners = function() {
   handleNewBookmarkButton();
   handleExpandButton();
@@ -162,19 +156,7 @@ const bindEventListeners = function() {
   handleCloseError();
 };
 
-
 export default {
   render,
   bindEventListeners
-};
-
-
-
-
-
-
-
-
-
-
-    
+};  
