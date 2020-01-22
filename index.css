@@ -156,7 +156,6 @@ fieldset{
 .bookmarkList-section {
     background-color: #c2d4dd;
     width:98%;
-    /* padding-top: 10px; */
     margin-left: auto;
     margin-right: auto;
 }
@@ -242,15 +241,7 @@ fieldset{
         margin-left: auto;
         margin-right: auto;
     }
-    
-    .main-controls {
-        text-align: center;
-    }
-    
-    div .add-and-filter  {
-        display: inline-block;    
-    }
-    
+
     #new-bookmark {
         background-color: #f0efef;
         border: 3px solid white;
@@ -265,10 +256,6 @@ fieldset{
         width: 180px;
         text-transform: uppercase;
         margin-right:300px;
-    }
-    
-    #new-bookmark:hover {
-        background-color: #ddeedd
     }
     
     #filter-by-rating {
@@ -327,19 +314,13 @@ fieldset{
         font-size: 16px;
     }
     
-    button[type=submit]:hover {
-        background-color: #5b9aa0;
-      }
-    
     #rating-input {
         transform: translate(-50%, -5%) rotateY(180deg);
         display: flex;
         position: relative;
         left: 0%;
     }
-    #rating-input input {
-        display: none;
-    }
+
     #rating-input label {
         display: block;
         cursor: pointer;
@@ -369,25 +350,14 @@ fieldset{
         position: fixed;
         top: 0;
     }
-    
-    #rating-input label:hover:after,
-    #rating-input label:hover ~ label:after,
-    #rating-input input:checked ~ label:after {
-        opacity: 1;
-    }
-    
-    fieldset{
-        border:none;
-        box-shadow: none;
-      }
-    
+ 
     .bookmarkList-section {
         background-color: #c2d4dd;
         width:98%;
-        /* padding-top: 10px; */
         margin-left: auto;
         margin-right: auto;
     }
+
     .bookmarkList-section ul {
         margin-top: 10px;
         list-style: none;
@@ -396,6 +366,7 @@ fieldset{
         margin-right: auto;
         padding-bottom: 100%;
     }
+
     .condense {
         margin-top: 10px;
         background-color: #667292;
@@ -406,20 +377,12 @@ fieldset{
         text-align: left;
         outline: none;
         font-size: 18px;
-        
-    }
-    
-    .condense:hover {
-      background-color: #555;
     }
     
     .bookmark-list-element {
       margin-bottom: 10px;
     }
     
-    .ratingStar {
-        float: right; 
-    }
     .expand {
         font-size: 18px;
         padding: 0 18px;
@@ -427,9 +390,7 @@ fieldset{
         background-color: #f0efef;
         border: 4px solid white;
         margin: 5px 0;
-        
     }
-    
     
     .delete {
         float: right;
@@ -441,14 +402,4 @@ fieldset{
         border: none;
         cursor: pointer;
     }
-    
-    .delete:hover {
-        background-color: #c54263;
-    }
-    
-    .visit-site {
-          color: #ec66c4;
-    }
 }
-
-

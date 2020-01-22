@@ -63,7 +63,7 @@ const render = function () {
 /* handling submit/delete/add buttons */
 const handleNewBookmarkButton = function() {
   $('#new-bookmark').click(function() {
-      store.toggleAddBookmarkForm();
+    store.toggleAddBookmarkForm();
     $('.addBookmark-form-section').slideToggle('slow');
   });
 };
@@ -159,15 +159,4 @@ const bindEventListeners = function() {
 export default {
   render,
   bindEventListeners
-};
-
-
-
-
-
-
-
-
-
-
-    
+};  
