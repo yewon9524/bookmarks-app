@@ -1,6 +1,6 @@
 # Bookmarks App Project - Raina 
 
-### Access live GH pages:  
+### Access live GH pages:  https://thinkful-ei-leopard.github.io/raina-bookmarks-app/
 
 ### User Stories
 As a User:
