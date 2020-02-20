@@ -2,6 +2,7 @@
     box-sizing: border-box;
     background-color: transparent;
     font-family: 'Rajdhani', sans-serif;
+    margin: none;
 
 }
 
@@ -12,9 +13,9 @@ header {
     text-transform: uppercase;
     color: white;
     font-family: 'Rajdhani', sans-serif;
-    background-color: #b0aac0 ;
+    background-color: #36486b ;
     padding-bottom: 10px;
-    width:98%;
+    width:100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -26,7 +27,7 @@ div .add-and-filter  {
 #new-bookmark {
     background-color: #f0efef;
     border: 1px solid white;
-    color: rgb(114, 114, 114);
+    color: rgb(70, 68, 68);
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
@@ -46,7 +47,7 @@ div .add-and-filter  {
 #filter-by-rating {
     background-color: #f0efef;
     border: 1px solid white;
-    color: rgb(114, 114, 114);
+    color: rgb(70, 68, 68);
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
@@ -72,8 +73,8 @@ div .add-and-filter  {
     margin-right: auto;
     margin-left: auto;
     font-size: 14px;
-    color: rgb(114, 114, 114); 
-    font-weight: normal;
+    color: rgb(66, 65, 65); 
+    font-weight: bold;
     background-color: #f0efef;
 }
 
@@ -154,10 +155,11 @@ fieldset{
   }
 
 .bookmarkList-section {
-    background-color: #c2d4dd;
-    width:98%;
+    background-color: #f1e3dd;
+    width:100%;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 100%;
 }
 .bookmarkList-section ul {
     margin-top: 10px;
@@ -169,7 +171,7 @@ fieldset{
 }
 .condense {
     margin-top: 10px;
-    background-color: #667292;
+    background-color: #6187ce;
     color: white;
     cursor: pointer;
     padding: 10px;
@@ -235,9 +237,9 @@ fieldset{
         text-transform: uppercase;
         color: #f0efef;
         font-family: 'Rajdhani', sans-serif;
-        background-color: #b0aac0 ;
+        background-color: #36486b ;
         padding-bottom: 25px;
-        width:98%;
+        width:100%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -245,7 +247,7 @@ fieldset{
     #new-bookmark {
         background-color: #f0efef;
         border: 3px solid white;
-        color: rgb(114, 114, 114);
+        color: rgb(70, 68, 68);
         cursor: pointer;
         font-size: 18px;
         font-weight: bold;
@@ -261,7 +263,7 @@ fieldset{
     #filter-by-rating {
         background-color: #f0efef;
         border: 3px solid white;
-        color: rgb(114, 114, 114);
+        color: rgb(70, 68, 68);
         cursor: pointer;
         font-size: 18px;
         font-weight: bold;
@@ -286,8 +288,8 @@ fieldset{
         margin-right: auto;
         margin-left: auto;
         font-size: 17px;
-        color: rgb(114, 114, 114); 
-        font-weight: normal;
+        color: rgb(66, 65, 65); 
+        font-weight: bold;
         background-color: #f0efef;
     }
     
@@ -299,7 +301,8 @@ fieldset{
         display: inline-block;
         border: 3px solid white;
         border-radius: 4px;
-        background-color: #c2d4dd;
+        background-color: #c4dff7;
+        font-size: 14px;
       }
     
     button[type=submit] {
@@ -335,7 +338,7 @@ fieldset{
         position: relative;
         display: block;
         font-size: 30px;
-        color: #c2d4dd;
+        color: #c4dff7;
     }
     
     #rating-input label:after {
@@ -352,8 +355,8 @@ fieldset{
     }
  
     .bookmarkList-section {
-        background-color: #c2d4dd;
-        width:98%;
+        background-color: #f1e3dd;
+        width:100%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -362,14 +365,13 @@ fieldset{
         margin-top: 10px;
         list-style: none;
         width: 60%;
-        margin-left: auto;
-        margin-right: auto;
+        margin-right: 22%;
         padding-bottom: 100%;
     }
 
     .condense {
-        margin-top: 10px;
-        background-color: #667292;
+        margin-top: 20px;
+        background-color: #6187ce;
         cursor: pointer;
         padding: 18px;
         width: 100%;
@@ -377,6 +379,7 @@ fieldset{
         text-align: left;
         outline: none;
         font-size: 18px;
+        font-weight: normal;
     }
     
     .bookmark-list-element {
