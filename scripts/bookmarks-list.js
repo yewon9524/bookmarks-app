@@ -11,7 +11,7 @@ const generateBookmarkElement = function(bookmark) {
         </div>
         ${bookmark.expand ? `<div class="expand">
             <p class='description'>${bookmark.desc}</p>
-            <a href="${bookmark.url}" class="visit-site">Visit Site</a>
+            <a href="${bookmark.url}" target="_blank" class="visit-site">Visit Site</a>
             <button class='delete' type='button' value='delete'>X</button>
         </div>` : ''}
     </li>
